@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
@@ -9,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-
+ 
 :root{
   --ink:#0B0B0D;
   --ink-2:#151417;
@@ -95,11 +96,11 @@ p{line-height:1.65;}
 .btn-outline-light:hover{border-color:var(--gold-dim); color:var(--gold-dim); transform:translateY(-2px);}
 .btn svg{width:15px;height:15px;transition:transform .25s ease;}
 .btn:hover svg{transform:translateX(3px);}
-
+ 
 /* ---------- seal ornament (signature element) ---------- */
 .seal{display:block;}
 .seal circle, .seal path, .seal line{vector-effect:non-scaling-stroke;}
-
+ 
 /* ---------- HEADER ---------- */
 header{
   position:fixed; top:0; left:0; right:0; z-index:100;
@@ -132,7 +133,7 @@ header{
 .nav-links a:hover{color:var(--gold-bright);}
 .nav-cta{display:flex;align-items:center;gap:18px;}
 .nav-toggle{display:none;}
-
+ 
 /* ---------- HERO ---------- */
 .hero{
   position:relative;
@@ -224,12 +225,12 @@ header{
   font-family:'JetBrains Mono',monospace;
   font-size:11px; letter-spacing:0.14em; color:var(--text-light-muted);
 }
-
+ 
 /* ---------- reveal on scroll ---------- */
 .reveal{opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease;}
 .reveal.in{opacity:1; transform:translateY(0);}
 .reveal-stagger > *{transition-delay:calc(var(--i,0) * 90ms);}
-
+ 
 /* ---------- RISK SECTION ---------- */
 .risk{
   background:var(--ink-2);
@@ -277,7 +278,7 @@ header{
   max-width:520px; color:var(--text-light);
 }
 .risk-callout p em{color:var(--gold-bright); font-style:italic;}
-
+ 
 /* ---------- SERVICES ---------- */
 .services{
   background:var(--parchment);
@@ -321,7 +322,7 @@ header{
   font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:0.12em;
   color:var(--gold-dim); text-transform:uppercase; margin-bottom:16px; display:block;
 }
-
+ 
 /* ---------- TESTIMONIALS ---------- */
 .testimonials{
   background:var(--parchment-2);
@@ -351,7 +352,7 @@ header{
 }
 .t-name{font-size:13.5px; font-weight:600;}
 .t-role{font-size:12px; color:var(--text-muted);}
-
+ 
 /* ---------- FAQ ---------- */
 .faq{
   background:var(--ink);
@@ -388,7 +389,7 @@ header{
 .faq-a p{
   padding:0 2px 22px; color:var(--text-light-muted); font-size:14.5px; line-height:1.7; max-width:520px;
 }
-
+ 
 /* ---------- FINAL CTA ---------- */
 .final-cta{
   background:linear-gradient(100deg,var(--gold) 0%, var(--gold-bright) 100%);
@@ -415,7 +416,7 @@ header{
   background:#171304; color:var(--text-light); border-color:#171304;
 }
 .final-cta .btn-outline-dark:hover{background:#2a2308;}
-
+ 
 /* ---------- FOOTER ---------- */
 footer{
   background:var(--ink);
@@ -445,7 +446,7 @@ footer{
 .note-flag{
   font-size:11px; color:rgba(185,180,166,0.45);
 }
-
+ 
 /* ---------- MOBILE ---------- */
 @media (max-width:920px){
   .nav-links{display:none;}
@@ -475,7 +476,7 @@ footer{
 @media (prefers-reduced-motion: reduce){
   *{transition-duration:.01ms !important; animation-duration:.01ms !important; scroll-behavior:auto !important;}
 }
-
+ 
 /* ---------- INNER PAGE BANNER ---------- */
 .page-banner{
   background:radial-gradient(120% 100% at 85% 0%, #201c14 0%, var(--ink) 55%), var(--ink);
@@ -504,9 +505,9 @@ footer{
 }
 .crumb a{color:var(--gold-bright);}
 .crumb a:hover{text-decoration:underline;}
-
+ 
 .nav-links a.active{color:var(--gold-bright);}
-
+ 
 /* ---------- teaser grids on homepage ---------- */
 .teaser-head{
   display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap;
@@ -518,7 +519,7 @@ footer{
 }
 .teaser-head .see-all:hover{color:var(--gold-bright);}
 .teaser-head .see-all svg{width:13px;height:13px;}
-
+ 
 /* ---------- lead form (contato) ---------- */
 .contact-section{background:var(--parchment); padding:110px 0 130px;}
 .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;}
@@ -528,7 +529,7 @@ footer{
 .contact-detail svg{width:18px;height:18px; color:var(--gold-dim); flex-shrink:0; margin-top:2px;}
 .contact-detail-label{font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); font-family:'JetBrains Mono',monospace; margin-bottom:2px;}
 .contact-detail-value{font-size:14.5px; font-weight:600;}
-
+ 
 .form-card{
   background:#fff; border:1px solid rgba(26,25,18,0.1);
   padding:38px 34px; box-shadow:0 30px 60px -30px rgba(26,25,18,0.25);
@@ -556,11 +557,11 @@ footer{
 @media (max-width:820px){
   .contact-grid{grid-template-columns:1fr;}
 }
-
+ 
 </style>
 </head>
 <body>
-
+ 
 <header>
   <nav class="nav">
     <div class="logo-mark">
@@ -582,7 +583,7 @@ footer{
     </div>
   </nav>
 </header>
-
+ 
 <section class="page-banner" style="padding-bottom:0;">
   <div class="wrap">
     <span class="crumb"><a href="index.html">Início</a> / Contato</span>
@@ -591,15 +592,15 @@ footer{
     <p class="lead">Conte o que você precisa proteger e um especialista da Proter responde pelo WhatsApp com um diagnóstico gratuito.</p>
   </div>
 </section>
-
+ 
 <section class="contact-section">
   <div class="wrap">
     <div class="contact-grid">
-
+ 
       <div class="contact-info reveal">
         <h2>Sua marca não espera.</h2>
         <p>Quanto antes o registro é protocolado, menor o risco de alguém tomar seu nome, sua invenção ou seu produto antes de você. Fale com a gente agora.</p>
-
+ 
         <div class="contact-detail">
           <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16v16H4V4z" stroke="currentColor" stroke-width="1.4"/><path d="M4 6l8 7 8-7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           <div>
@@ -629,11 +630,11 @@ footer{
           </div>
         </div>
       </div>
-
+ 
       <div class="form-card reveal">
         <h3>Diagnóstico gratuito</h3>
         <p class="form-sub">Resposta pelo WhatsApp. Seus dados estão seguros e não são compartilhados.</p>
-
+ 
         <label class="field-label">O que você precisa proteger?</label>
         <div class="chip-group" id="protect-group">
           <label class="chip selected"><input type="radio" name="protect" value="Marca" checked>Marca</label>
@@ -641,15 +642,15 @@ footer{
           <label class="chip"><input type="radio" name="protect" value="Software">Software</label>
           <label class="chip"><input type="radio" name="protect" value="Desenho industrial">Desenho industrial</label>
         </div>
-
+ 
         <label class="field-label">Seu nome</label>
         <input class="text-input" id="input-name" type="text" placeholder="Nome completo">
         <span class="field-error-msg" id="error-name">Por favor, informe seu nome.</span>
-
+ 
         <label class="field-label">WhatsApp com DDD</label>
         <input class="text-input" id="input-phone" type="tel" placeholder="(13) 99202-0653">
         <span class="field-error-msg" id="error-phone">Por favor, informe um WhatsApp válido.</span>
-
+ 
         <label class="field-label">Qual serviço você procura?</label>
         <div class="chip-group" id="service-group">
           <label class="chip selected"><input type="checkbox" value="Registro e Concessão" checked>Registro e Concessão</label>
@@ -658,7 +659,7 @@ footer{
           <label class="chip"><input type="checkbox" value="Contratos e Negócios">Contratos e Negócios</label>
           <label class="chip"><input type="checkbox" value="Auditoria (Due Diligence)">Auditoria (Due Diligence)</label>
         </div>
-
+ 
         <label class="field-label">Há quanto tempo tem CNPJ?</label>
         <select class="select-input" id="input-cnpj">
           <option value="">Selecione</option>
@@ -668,25 +669,25 @@ footer{
           <option value="3 a 5 anos">3 a 5 anos</option>
           <option value="Mais de 5 anos">Mais de 5 anos</option>
         </select>
-
+ 
         <a class="btn btn-gold form-submit" href="#" id="whatsapp-submit">
           Quero falar com um especialista
           <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#171304" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
         <p class="form-note">Seus dados estão seguros. Sem spam.</p>
       </div>
-
+ 
     </div>
   </div>
 </section>
-
+ 
 <footer>
   <div class="wrap">
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="logo-mark">
 <img src="proter.png" alt="Logo" width="50" height="50">
-
+ 
           <span class="wordmark">PROT<span>E</span>R</span>
         </div>
         <p>Blindagem empresarial para quem constrói patrimônio. Registro, vigilância e defesa jurídica da sua propriedade intelectual.</p>
@@ -719,9 +720,9 @@ footer{
     </div>
   </div>
 </footer>
-
+ 
 <script>
-
+ 
 // reveal on scroll
 const revealEls = document.querySelectorAll('.reveal');
 const io = new IntersectionObserver((entries)=>{
@@ -733,12 +734,12 @@ const io = new IntersectionObserver((entries)=>{
   });
 },{threshold:0.15});
 revealEls.forEach(el=>io.observe(el));
-
+ 
 // stagger children fade for reveal-stagger groups
 document.querySelectorAll('.reveal-stagger').forEach(group=>{
   group.classList.add('reveal');
 });
-
+ 
 // faq accordion
 document.querySelectorAll('.faq-item').forEach(item=>{
   const q = item.querySelector('.faq-q');
@@ -763,13 +764,13 @@ document.querySelectorAll('.faq-item').forEach(item=>{
     }
   });
 });
-
+ 
 // header shadow on scroll
 const header = document.querySelector('header');
 window.addEventListener('scroll', ()=>{
   header.style.boxShadow = window.scrollY > 20 ? '0 8px 30px -12px rgba(0,0,0,0.5)' : 'none';
 });
-
+ 
 </script>
 <script>
 document.querySelectorAll('#protect-group .chip').forEach(chip=>{
@@ -786,54 +787,54 @@ document.querySelectorAll('#service-group .chip').forEach(chip=>{
   });
 });
 </script>
-
+ 
 <script>
 /* ---------- envio da ficha para o WhatsApp ---------- */
 (function(){
   // Número da Proter que vai RECEBER a mensagem (formato internacional, sem espaços/símbolos)
   const PROTER_WHATSAPP = '5513992020653';
-
+ 
   const submitBtn = document.getElementById('whatsapp-submit');
   const nameInput = document.getElementById('input-name');
   const phoneInput = document.getElementById('input-phone');
   const cnpjSelect = document.getElementById('input-cnpj');
   const errorName = document.getElementById('error-name');
   const errorPhone = document.getElementById('error-phone');
-
+ 
   function getSelectedProtect(){
     const checked = document.querySelector('#protect-group input[type="radio"]:checked');
     return checked ? checked.value : '';
   }
-
+ 
   function getSelectedServices(){
     const checked = document.querySelectorAll('#service-group input[type="checkbox"]:checked');
     return Array.from(checked).map(el => el.value);
   }
-
+ 
   function onlyDigits(str){
     return (str || '').replace(/\D/g, '');
   }
-
+ 
   function buildMessage(){
     const nome = nameInput.value.trim();
     const telefone = phoneInput.value.trim();
     const protect = getSelectedProtect();
     const servicos = getSelectedServices();
     const cnpjTempo = cnpjSelect.value;
-
+ 
     let msg = 'Olá! Preenchi o formulário de diagnóstico gratuito no site da Proter e gostaria de falar com um especialista.\n\n';
     msg += '*Nome:* ' + nome + '\n';
     msg += '*WhatsApp:* ' + telefone + '\n';
     msg += '*O que preciso proteger:* ' + protect + '\n';
     msg += '*Serviço(s) de interesse:* ' + (servicos.length ? servicos.join(', ') : 'não informado') + '\n';
     msg += '*Tempo de CNPJ:* ' + (cnpjTempo || 'não informado');
-
+ 
     return msg;
   }
-
+ 
   function validate(){
     let valid = true;
-
+ 
     if(!nameInput.value.trim()){
       nameInput.classList.add('field-error');
       errorName.classList.add('show');
@@ -842,7 +843,7 @@ document.querySelectorAll('#service-group .chip').forEach(chip=>{
       nameInput.classList.remove('field-error');
       errorName.classList.remove('show');
     }
-
+ 
     const digits = onlyDigits(phoneInput.value);
     if(digits.length < 10){
       phoneInput.classList.add('field-error');
@@ -852,769 +853,22 @@ document.querySelectorAll('#service-group .chip').forEach(chip=>{
       phoneInput.classList.remove('field-error');
       errorPhone.classList.remove('show');
     }
-
+ 
     return valid;
   }
-
+ 
   submitBtn.addEventListener('click', function(e){
     e.preventDefault();
-
+ 
     if(!validate()) return;
-
+ 
     const mensagem = buildMessage();
     const url = 'https://wa.me/' + PROTER_WHATSAPP + '?text=' + encodeURIComponent(mensagem);
-
+ 
     window.open(url, '_blank');
   });
 })();
 </script>
 </body>
-</html>  overflow-x:hidden;
-}
-img{max-width:100%;display:block;}
-a{color:inherit;text-decoration:none;}
-.wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
-.eyebrow{
-  font-family:'JetBrains Mono',monospace;
-  font-size:11px;
-  letter-spacing:0.22em;
-  text-transform:uppercase;
-  color:var(--gold);
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-}
-.eyebrow::before{
-  content:"";
-  width:22px;height:1px;
-  background:var(--gold);
-  display:inline-block;
-}
-h1,h2,h3{
-  font-family:'Playfair Display',serif;
-  font-weight:700;
-  line-height:1.08;
-  letter-spacing:-0.01em;
-}
-.serif-italic{font-style:italic;font-weight:600;color:var(--gold);}
-p{line-height:1.65;}
-.btn{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  font-family:'Inter',sans-serif;
-  font-weight:600;
-  font-size:14.5px;
-  letter-spacing:0.01em;
-  padding:16px 28px;
-  border-radius:var(--radius);
-  cursor:pointer;
-  border:1px solid transparent;
-  transition:transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
-  white-space:nowrap;
-}
-.btn-gold{
-  background:linear-gradient(180deg,var(--gold-bright),var(--gold));
-  color:#171304;
-}
-.btn-gold:hover{transform:translateY(-2px); box-shadow: var(--shadow-gold);}
-.btn-outline-dark{
-  border-color:rgba(244,241,232,0.35);
-  color:var(--text-light);
-}
-.btn-outline-dark:hover{border-color:var(--gold); color:var(--gold-bright); transform:translateY(-2px);}
-.btn-outline-light{
-  border-color:rgba(26,25,18,0.25);
-  color:var(--text-dark);
-}
-.btn-outline-light:hover{border-color:var(--gold-dim); color:var(--gold-dim); transform:translateY(-2px);}
-.btn svg{width:15px;height:15px;transition:transform .25s ease;}
-.btn:hover svg{transform:translateX(3px);}
-
-/* ---------- seal ornament (signature element) ---------- */
-.seal{display:block;}
-.seal circle, .seal path, .seal line{vector-effect:non-scaling-stroke;}
-
-/* ---------- HEADER ---------- */
-header{
-  position:fixed; top:0; left:0; right:0; z-index:100;
-  background:rgba(11,11,13,0.82);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid rgba(201,162,39,0.16);
-}
-.nav{
-  display:flex; align-items:center; justify-content:space-between;
-  padding:18px 32px;
-  max-width:1180px; margin:0 auto;
-}
-.logo-mark{display:flex; align-items:center; gap:10px;}
-.logo-mark .seal{width:30px;height:30px;}
-.wordmark{
-  font-family:'Playfair Display',serif;
-  font-weight:900;
-  font-size:19px;
-  letter-spacing:0.06em;
-  color:var(--text-light);
-}
-.wordmark span{color:var(--gold);}
-.nav-links{display:flex; align-items:center; gap:34px;}
-.nav-links a{
-  font-size:13.5px;
-  color:var(--text-light-muted);
-  transition:color .2s ease;
-  letter-spacing:0.01em;
-}
-.nav-links a:hover{color:var(--gold-bright);}
-.nav-cta{display:flex;align-items:center;gap:18px;}
-.nav-toggle{display:none;}
-
-/* ---------- HERO ---------- */
-.hero{
-  position:relative;
-  background:radial-gradient(120% 100% at 85% 0%, #201c14 0%, var(--ink) 55%), var(--ink);
-  color:var(--text-light);
-  padding:168px 0 0;
-  overflow:hidden;
-}
-.hero::before{
-  content:"";
-  position:absolute; inset:0;
-  background-image:
-    linear-gradient(rgba(201,162,39,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(201,162,39,0.05) 1px, transparent 1px);
-  background-size:64px 64px;
-  mask-image:radial-gradient(60% 60% at 30% 20%, black, transparent 75%);
-  pointer-events:none;
-}
-.hero-grid{
-  display:grid;
-  grid-template-columns:1.02fr 0.92fr;
-  gap:24px;
-  align-items:end;
-  position:relative;
-}
-.hero-copy{padding-bottom:64px;}
-.hero-copy .eyebrow{margin-bottom:22px;}
-.hero-copy h1{
-  font-size:clamp(34px,4.6vw,58px);
-  margin-bottom:22px;
-  max-width:620px;
-}
-.hero-copy p.lead{
-  font-size:17px;
-  color:var(--text-light-muted);
-  max-width:480px;
-  margin-bottom:34px;
-}
-.hero-actions{display:flex; align-items:center; gap:22px; margin-bottom:56px; flex-wrap:wrap;}
-.hero-trust{
-  display:flex; align-items:center; gap:12px;
-  font-family:'JetBrains Mono',monospace;
-  font-size:11.5px;
-  color:var(--text-light-muted);
-  letter-spacing:0.04em;
-}
-.hero-visual{
-  position:relative;
-  display:flex; align-items:flex-end; justify-content:center;
-  height:100%;
-}
-.hero-photo-frame{
-  position:relative;
-  width:100%;
-  max-width:460px;
-}
-.hero-photo-frame img{
-  width:100%; height:auto;
-  filter:drop-shadow(0 30px 60px rgba(0,0,0,0.55));
-  position:relative; z-index:2;
-}
-.hero-ring{
-  position:absolute;
-  border:1px solid rgba(201,162,39,0.3);
-  border-radius:50%;
-  z-index:1;
-}
-.hero-ring.r1{width:420px;height:420px;top:8%;right:-8%;}
-.hero-ring.r2{width:560px;height:560px;top:-4%;right:-18%;border-color:rgba(201,162,39,0.14);}
-.hero-stats{
-  border-top:1px solid rgba(201,162,39,0.18);
-  padding:34px 0;
-  position:relative;
-}
-.hero-stats .wrap{
-  display:flex; justify-content:space-between; align-items:center; gap:24px; flex-wrap:wrap;
-}
-.stat-item{display:flex; flex-direction:column; gap:4px;}
-.stat-num{
-  font-family:'JetBrains Mono',monospace;
-  font-size:26px; font-weight:600; color:var(--gold-bright);
-}
-.stat-label{
-  font-size:11.5px; color:var(--text-light-muted);
-  letter-spacing:0.03em;
-}
-.stat-divider{width:1px; height:34px; background:rgba(201,162,39,0.2);}
-.hero-platforms{
-  font-family:'JetBrains Mono',monospace;
-  font-size:11px; letter-spacing:0.14em; color:var(--text-light-muted);
-}
-
-/* ---------- reveal on scroll ---------- */
-.reveal{opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease;}
-.reveal.in{opacity:1; transform:translateY(0);}
-.reveal-stagger > *{transition-delay:calc(var(--i,0) * 90ms);}
-
-/* ---------- RISK SECTION ---------- */
-.risk{
-  background:var(--ink-2);
-  color:var(--text-light);
-  padding:120px 0;
-  position:relative;
-}
-.risk-head{max-width:640px; margin-bottom:56px;}
-.risk-head .eyebrow{margin-bottom:20px;}
-.risk-head h2{font-size:clamp(28px,3.4vw,42px); margin-bottom:18px;}
-.risk-head h2 em{font-style:italic; color:var(--gold-bright);}
-.risk-head p{color:var(--text-light-muted); font-size:16px; max-width:520px;}
-.risk-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:1px;
-  background:rgba(201,162,39,0.16);
-  border:1px solid rgba(201,162,39,0.16);
-  margin-bottom:56px;
-}
-.risk-card{
-  background:var(--ink-2);
-  padding:32px 26px;
-  transition:background .3s ease;
-}
-.risk-card:hover{background:#1a181a;}
-.risk-num{
-  font-family:'JetBrains Mono',monospace;
-  font-size:11px; color:var(--gold-dim); letter-spacing:0.1em; margin-bottom:18px; display:block;
-}
-.risk-card h3{
-  font-family:'Inter',sans-serif; font-weight:600; font-size:16.5px;
-  color:var(--text-light); margin-bottom:10px;
-}
-.risk-card p{font-size:14px; color:var(--text-light-muted); line-height:1.6;}
-.risk-callout{
-  border:1px solid rgba(201,162,39,0.35);
-  padding:38px 40px;
-  display:flex; align-items:center; justify-content:space-between; gap:28px; flex-wrap:wrap;
-  position:relative;
-  background:linear-gradient(120deg, rgba(201,162,39,0.06), transparent 60%);
-}
-.risk-callout p{
-  font-family:'Playfair Display',serif; font-size:22px; font-weight:600;
-  max-width:520px; color:var(--text-light);
-}
-.risk-callout p em{color:var(--gold-bright); font-style:italic;}
-
-/* ---------- SERVICES ---------- */
-.services{
-  background:var(--parchment);
-  padding:130px 0;
-}
-.services-head{
-  display:flex; justify-content:space-between; align-items:flex-end; gap:40px;
-  margin-bottom:64px; flex-wrap:wrap;
-}
-.services-head .eyebrow{color:var(--gold-dim); margin-bottom:20px;}
-.services-head .eyebrow::before{background:var(--gold-dim);}
-.services-head h2{font-size:clamp(30px,3.6vw,46px); max-width:520px;}
-.services-head p{color:var(--text-muted); max-width:340px; font-size:15px;}
-.services-grid{
-  display:grid;
-  grid-template-columns:repeat(6,1fr);
-  gap:1px;
-  background:rgba(26,25,18,0.1);
-  border:1px solid rgba(26,25,18,0.1);
-}
-.service-card{
-  grid-column:span 2;
-  background:var(--parchment);
-  padding:40px 34px;
-  position:relative;
-  transition:background .35s ease, transform .35s ease;
-}
-.service-card:nth-child(4),.service-card:nth-child(5){grid-column:span 3;}
-.service-card:hover{background:#fff;}
-.service-icon{
-  width:54px;height:54px;
-  margin-bottom:26px;
-  color:var(--gold-dim);
-}
-.service-card h3{
-  font-size:19px; font-weight:700; margin-bottom:12px; color:var(--text-dark);
-  letter-spacing:-0.01em;
-}
-.service-card p{font-size:14.5px; color:var(--text-muted); line-height:1.65;}
-.service-tag{
-  font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:0.12em;
-  color:var(--gold-dim); text-transform:uppercase; margin-bottom:16px; display:block;
-}
-
-/* ---------- TESTIMONIALS ---------- */
-.testimonials{
-  background:var(--parchment-2);
-  padding:120px 0;
-  border-top:1px solid rgba(26,25,18,0.08);
-  border-bottom:1px solid rgba(26,25,18,0.08);
-}
-.testimonials .eyebrow{color:var(--gold-dim); margin-bottom:20px;}
-.testimonials .eyebrow::before{background:var(--gold-dim);}
-.testimonials h2{font-size:clamp(28px,3.2vw,40px); margin-bottom:56px; max-width:560px;}
-.t-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
-.t-card{
-  background:var(--parchment);
-  border:1px solid rgba(26,25,18,0.1);
-  padding:32px 28px;
-  display:flex; flex-direction:column; gap:20px;
-}
-.stars{display:flex; gap:4px;}
-.stars svg{width:14px;height:14px; fill:var(--gold);}
-.t-card p.quote{font-size:15px; line-height:1.7; color:var(--text-dark); font-style:italic; font-family:'Playfair Display',serif; font-weight:500;}
-.t-author{display:flex; align-items:center; gap:12px; margin-top:auto;}
-.t-avatar{
-  width:38px;height:38px;border-radius:50%;
-  background:var(--ink);
-  display:flex;align-items:center;justify-content:center;
-  color:var(--gold-bright); font-family:'Playfair Display',serif; font-weight:700; font-size:15px;
-}
-.t-name{font-size:13.5px; font-weight:600;}
-.t-role{font-size:12px; color:var(--text-muted);}
-
-/* ---------- FAQ ---------- */
-.faq{
-  background:var(--ink);
-  color:var(--text-light);
-  padding:130px 0;
-}
-.faq-grid{display:grid; grid-template-columns:0.8fr 1.2fr; gap:60px;}
-.faq-head .eyebrow{margin-bottom:20px;}
-.faq-head h2{font-size:clamp(28px,3.4vw,42px); margin-bottom:20px;}
-.faq-head p{color:var(--text-light-muted); font-size:15px; max-width:340px; margin-bottom:32px;}
-.faq-item{
-  border-bottom:1px solid rgba(201,162,39,0.18);
-}
-.faq-q{
-  width:100%; text-align:left; background:none; border:none; cursor:pointer;
-  display:flex; justify-content:space-between; align-items:center; gap:20px;
-  padding:22px 2px;
-  color:var(--text-light);
-  font-family:'Inter',sans-serif; font-size:15.5px; font-weight:600;
-}
-.faq-q:hover{color:var(--gold-bright);}
-.faq-icon{
-  width:20px;height:20px; flex-shrink:0; position:relative;
-}
-.faq-icon::before,.faq-icon::after{
-  content:""; position:absolute; background:var(--gold); transition:transform .3s ease;
-}
-.faq-icon::before{top:50%; left:0; width:100%; height:1px; transform:translateY(-50%);}
-.faq-icon::after{left:50%; top:0; width:1px; height:100%; transform:translateX(-50%);}
-.faq-item.open .faq-icon::after{transform:translateX(-50%) rotate(90deg); opacity:0;}
-.faq-a{
-  max-height:0; overflow:hidden; transition:max-height .35s ease;
-}
-.faq-a p{
-  padding:0 2px 22px; color:var(--text-light-muted); font-size:14.5px; line-height:1.7; max-width:520px;
-}
-
-/* ---------- FINAL CTA ---------- */
-.final-cta{
-  background:linear-gradient(100deg,var(--gold) 0%, var(--gold-bright) 100%);
-  padding:80px 0;
-  position:relative;
-  overflow:hidden;
-}
-.final-cta::after{
-  content:"";
-  position:absolute; right:-60px; top:50%; transform:translateY(-50%);
-  width:280px;height:280px;
-  border:1px solid rgba(23,19,4,0.15);
-  border-radius:50%;
-}
-.final-cta-inner{
-  display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap;
-  position:relative;
-}
-.final-cta h2{
-  font-size:clamp(26px,3.2vw,38px); color:#171304; max-width:520px;
-}
-.final-cta p{color:#3a2f0d; margin-top:12px; max-width:420px; font-size:15px;}
-.final-cta .btn-outline-dark{
-  background:#171304; color:var(--text-light); border-color:#171304;
-}
-.final-cta .btn-outline-dark:hover{background:#2a2308;}
-
-/* ---------- FOOTER ---------- */
-footer{
-  background:var(--ink);
-  color:var(--text-light-muted);
-  padding:70px 0 28px;
-}
-.footer-grid{
-  display:grid; grid-template-columns:1.4fr 0.8fr 0.8fr 1fr; gap:40px;
-  padding-bottom:50px; border-bottom:1px solid rgba(201,162,39,0.14);
-  margin-bottom:26px;
-}
-.footer-brand .logo-mark{margin-bottom:18px;}
-.footer-brand p{font-size:13.5px; max-width:280px; line-height:1.7;}
-.footer-col h4{
-  font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-light);
-  margin-bottom:18px; font-weight:600;
-}
-.footer-col a, .footer-col p{
-  display:block; font-size:13.5px; margin-bottom:10px; color:var(--text-light-muted);
-  transition:color .2s ease;
-}
-.footer-col a:hover{color:var(--gold-bright);}
-.footer-bottom{
-  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
-  font-size:12px; color:rgba(185,180,166,0.6);
-}
-.note-flag{
-  font-size:11px; color:rgba(185,180,166,0.45);
-}
-
-/* ---------- MOBILE ---------- */
-@media (max-width:920px){
-  .nav-links{display:none;}
-  .hero-grid{grid-template-columns:1fr; gap:0;}
-  .hero-copy{padding-bottom:40px;}
-  .hero-visual{margin-top:20px;}
-  .hero-photo-frame{max-width:320px; margin:0 auto;}
-  .hero-ring{display:none;}
-  .risk-grid{grid-template-columns:repeat(2,1fr);}
-  .services-grid{grid-template-columns:repeat(2,1fr);}
-  .service-card{grid-column:span 2 !important;}
-  .services-head{flex-direction:column; align-items:flex-start;}
-  .t-grid{grid-template-columns:1fr;}
-  .faq-grid{grid-template-columns:1fr; gap:30px;}
-  .footer-grid{grid-template-columns:1fr 1fr; gap:32px;}
-  .final-cta-inner{flex-direction:column; align-items:flex-start;}
-}
-@media (max-width:560px){
-  .wrap{padding:0 20px;}
-  .hero{padding-top:140px;}
-  .hero-stats .wrap{gap:20px;}
-  .stat-divider{display:none;}
-  .risk-grid{grid-template-columns:1fr;}
-  .footer-grid{grid-template-columns:1fr;}
-  .risk-callout{flex-direction:column; align-items:flex-start;}
-}
-@media (prefers-reduced-motion: reduce){
-  *{transition-duration:.01ms !important; animation-duration:.01ms !important; scroll-behavior:auto !important;}
-}
-
-/* ---------- INNER PAGE BANNER ---------- */
-.page-banner{
-  background:radial-gradient(120% 100% at 85% 0%, #201c14 0%, var(--ink) 55%), var(--ink);
-  color:var(--text-light);
-  padding:168px 0 70px;
-  position:relative;
-  overflow:hidden;
-}
-.page-banner::before{
-  content:"";
-  position:absolute; inset:0;
-  background-image:
-    linear-gradient(rgba(201,162,39,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(201,162,39,0.05) 1px, transparent 1px);
-  background-size:64px 64px;
-  mask-image:radial-gradient(60% 60% at 20% 20%, black, transparent 75%);
-  pointer-events:none;
-}
-.page-banner .wrap{position:relative;}
-.page-banner .eyebrow{margin-bottom:20px;}
-.page-banner h1{font-size:clamp(32px,4.4vw,52px); max-width:680px; margin-bottom:16px;}
-.page-banner p.lead{color:var(--text-light-muted); font-size:16px; max-width:520px;}
-.crumb{
-  font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.1em;
-  color:var(--text-light-muted); text-transform:uppercase; margin-bottom:26px; display:block;
-}
-.crumb a{color:var(--gold-bright);}
-.crumb a:hover{text-decoration:underline;}
-
-.nav-links a.active{color:var(--gold-bright);}
-
-/* ---------- teaser grids on homepage ---------- */
-.teaser-head{
-  display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap;
-  margin-bottom:44px;
-}
-.teaser-head .see-all{
-  font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.06em; color:var(--gold-dim);
-  display:inline-flex; align-items:center; gap:8px;
-}
-.teaser-head .see-all:hover{color:var(--gold-bright);}
-.teaser-head .see-all svg{width:13px;height:13px;}
-
-/* ---------- lead form (contato) ---------- */
-.contact-section{background:var(--parchment); padding:110px 0 130px;}
-.contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;}
-.contact-info h2{font-size:clamp(26px,3.2vw,36px); margin-bottom:18px;}
-.contact-info p{color:var(--text-muted); font-size:15px; max-width:420px; margin-bottom:34px;}
-.contact-detail{display:flex; align-items:flex-start; gap:14px; margin-bottom:24px;}
-.contact-detail svg{width:18px;height:18px; color:var(--gold-dim); flex-shrink:0; margin-top:2px;}
-.contact-detail-label{font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); font-family:'JetBrains Mono',monospace; margin-bottom:2px;}
-.contact-detail-value{font-size:14.5px; font-weight:600;}
-
-.form-card{
-  background:#fff; border:1px solid rgba(26,25,18,0.1);
-  padding:38px 34px; box-shadow:0 30px 60px -30px rgba(26,25,18,0.25);
-}
-.form-card h3{font-size:20px; margin-bottom:6px;}
-.form-card .form-sub{color:var(--text-muted); font-size:13.5px; margin-bottom:26px;}
-.field-label{font-size:12.5px; font-weight:600; margin-bottom:10px; display:block;}
-.chip-group{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:22px;}
-.chip{
-  border:1px solid rgba(26,25,18,0.18); padding:10px 16px; font-size:13px; cursor:pointer;
-  transition:border-color .2s ease, background .2s ease; user-select:none;
-}
-.chip.selected{border-color:var(--gold); background:rgba(201,162,39,0.08);}
-.chip input{display:none;}
-.text-input, .select-input{
-  width:100%; border:1px solid rgba(26,25,18,0.18); padding:14px 16px; font-size:14px;
-  font-family:'Inter',sans-serif; margin-bottom:18px; background:#fff; color:var(--text-dark);
-}
-.text-input:focus, .select-input:focus{outline:none; border-color:var(--gold);}
-.form-submit{width:100%; justify-content:center; margin-top:6px;}
-.form-note{font-size:11.5px; color:var(--text-muted); text-align:center; margin-top:14px;}
-@media (max-width:820px){
-  .contact-grid{grid-template-columns:1fr;}
-}
-
-</style>
-</head>
-<body>
-
-<header>
-  <nav class="nav">
-    <div class="logo-mark">
-        <img src="proter.png" alt="Logo" width="35" height="35">
-      <span class="wordmark">PROT<span>E</span>R</span>
-    </div>
-    <div class="nav-links">
-      <a href="index.html">Início</a>
-      <a href="servicos.html">Serviços</a>
-      <a href="diferenciais.html">Por que blindar</a>
-      <a href="depoimentos.html">Depoimentos</a>
-      <a href="faq.html">Dúvidas</a>
-    </div>
-    <div class="nav-cta">
-      <a class="btn btn-gold" href="contato.html">
-        Fale com um especialista
-        <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#171304" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-    </div>
-  </nav>
-</header>
-
-<section class="page-banner" style="padding-bottom:0;">
-  <div class="wrap">
-    <span class="crumb"><a href="index.html">Início</a> / Contato</span>
-    <span class="eyebrow">Diagnóstico gratuito</span>
-    <h1>Fale com um especialista</h1>
-    <p class="lead">Conte o que você precisa proteger e um especialista da Proter responde pelo WhatsApp com um diagnóstico gratuito.</p>
-  </div>
-</section>
-
-<section class="contact-section">
-  <div class="wrap">
-    <div class="contact-grid">
-
-      <div class="contact-info reveal">
-        <h2>Sua marca não espera.</h2>
-        <p>Quanto antes o registro é protocolado, menor o risco de alguém tomar seu nome, sua invenção ou seu produto antes de você. Fale com a gente agora.</p>
-
-        <div class="contact-detail">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16v16H4V4z" stroke="currentColor" stroke-width="1.4"/><path d="M4 6l8 7 8-7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <div>
-            <div class="contact-detail-label">E-mail</div>
-            <div class="contact-detail-value">contato@proter.com.br</div>
-          </div>
-        </div>
-        <div class="contact-detail">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M6 3h4l2 5-2.5 1.5a12 12 0 006 6L17 13l5 2v4a2 2 0 01-2 2C10.5 21 3 13.5 3 5a2 2 0 012-2z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
-          <div>
-            <div class="contact-detail-label">WhatsApp</div>
-            <div class="contact-detail-value">(13) 99202-0653</div>
-          </div>
-        </div>
-        <div class="contact-detail">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z" stroke="currentColor" stroke-width="1.3"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.3"/></svg>
-          <div>
-            <div class="contact-detail-label">Endereço</div>
-            <div class="contact-detail-value">a confirmar</div>
-          </div>
-        </div>
-        <div class="contact-detail">
-          <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="1.3"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.3"/><circle cx="17.2" cy="6.8" r="0.6" fill="currentColor"/></svg>
-          <div>
-            <div class="contact-detail-label">Instagram</div>
-            <div class="contact-detail-value">@proterblindagem</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="form-card reveal">
-        <h3>Diagnóstico gratuito</h3>
-        <p class="form-sub">Resposta pelo WhatsApp. Seus dados estão seguros e não são compartilhados.</p>
-
-        <label class="field-label">O que você precisa proteger?</label>
-        <div class="chip-group" id="protect-group">
-          <label class="chip selected"><input type="radio" name="protect" checked>Marca</label>
-          <label class="chip"><input type="radio" name="protect">Patente</label>
-          <label class="chip"><input type="radio" name="protect">Software</label>
-          <label class="chip"><input type="radio" name="protect">Desenho industrial</label>
-        </div>
-
-        <label class="field-label">Seu nome</label>
-        <input class="text-input" type="text" placeholder="Nome completo">
-
-        <label class="field-label">WhatsApp com DDD</label>
-        <input class="text-input" type="tel" placeholder="(13) 99202-0653">
-
-        <label class="field-label">Qual serviço você procura?</label>
-        <div class="chip-group" id="service-group">
-          <label class="chip selected"><input type="checkbox" checked>Registro e Concessão</label>
-          <label class="chip"><input type="checkbox">Vigilância de Mercado</label>
-          <label class="chip"><input type="checkbox">Defesa Jurídica</label>
-          <label class="chip"><input type="checkbox">Contratos e Negócios</label>
-          <label class="chip"><input type="checkbox">Auditoria (Due Diligence)</label>
-        </div>
-
-        <label class="field-label">Há quanto tempo tem CNPJ?</label>
-        <select class="select-input">
-          <option>Selecione</option>
-          <option>Ainda não tenho CNPJ</option>
-          <option>Menos de 1 ano</option>
-          <option>1 a 3 anos</option>
-          <option>3 a 5 anos</option>
-          <option>Mais de 5 anos</option>
-        </select>
-
-        <a class="btn btn-gold form-submit" href="#" onclick="return false;">
-          Quero falar com um especialista
-          <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#171304" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-        <p class="form-note">Seus dados estão seguros. Sem spam.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="logo-mark">
-<img src="proter.png" alt="Logo" width="50" height="50">
-
-          <span class="wordmark">PROT<span>E</span>R</span>
-        </div>
-        <p>Blindagem empresarial para quem constrói patrimônio. Registro, vigilância e defesa jurídica da sua propriedade intelectual.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Serviços</h4>
-        <a href="servicos.html">Registro e Concessão</a>
-        <a href="servicos.html">Vigilância de Mercado</a>
-        <a href="servicos.html">Defesa Jurídica</a>
-        <a href="servicos.html">Contratos e Negócios</a>
-        <a href="servicos.html">Auditoria (Due Diligence)</a>
-      </div>
-      <div class="footer-col">
-        <h4>Site</h4>
-        <a href="diferenciais.html">Por que blindar</a>
-        <a href="depoimentos.html">Depoimentos</a>
-        <a href="faq.html">Dúvidas</a>
-        <a href="contato.html">Fale com um especialista</a>
-      </div>
-      <div class="footer-col">
-        <h4>Contato</h4>
-        <p>WhatsApp: (13) 99202-0653</p>
-        <p>contato@proter.com.br</p>
-        <p>Instagram @proterblindagem</p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 Proter — Blindagem Empresarial. Todos os direitos reservados.</span>
-      <span>Seja oficial.</span>
-    </div>
-  </div>
-</footer>
-
-<script>
-
-// reveal on scroll
-const revealEls = document.querySelectorAll('.reveal');
-const io = new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.classList.add('in');
-      io.unobserve(e.target);
-    }
-  });
-},{threshold:0.15});
-revealEls.forEach(el=>io.observe(el));
-
-// stagger children fade for reveal-stagger groups
-document.querySelectorAll('.reveal-stagger').forEach(group=>{
-  group.classList.add('reveal');
-});
-
-// faq accordion
-document.querySelectorAll('.faq-item').forEach(item=>{
-  const q = item.querySelector('.faq-q');
-  const a = item.querySelector('.faq-a');
-  if(item.classList.contains('open')){
-    a.style.maxHeight = a.scrollHeight + 'px';
-  }
-  q.addEventListener('click', ()=>{
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item.open').forEach(other=>{
-      if(other!==item){
-        other.classList.remove('open');
-        other.querySelector('.faq-a').style.maxHeight = 0;
-      }
-    });
-    if(isOpen){
-      item.classList.remove('open');
-      a.style.maxHeight = 0;
-    } else {
-      item.classList.add('open');
-      a.style.maxHeight = a.scrollHeight + 'px';
-    }
-  });
-});
-
-// header shadow on scroll
-const header = document.querySelector('header');
-window.addEventListener('scroll', ()=>{
-  header.style.boxShadow = window.scrollY > 20 ? '0 8px 30px -12px rgba(0,0,0,0.5)' : 'none';
-});
-
-</script>
-<script>
-document.querySelectorAll('#protect-group .chip').forEach(chip=>{
-  chip.addEventListener('click', ()=>{
-    document.querySelectorAll('#protect-group .chip').forEach(c=>c.classList.remove('selected'));
-    chip.classList.add('selected');
-  });
-});
-document.querySelectorAll('#service-group .chip').forEach(chip=>{
-  chip.addEventListener('click', ()=>{
-    chip.classList.toggle('selected');
-    const input = chip.querySelector('input');
-    input.checked = chip.classList.contains('selected');
-  });
-});
-</script>
-</body>
 </html>
+ 
