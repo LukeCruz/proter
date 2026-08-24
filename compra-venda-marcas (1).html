@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compra e Venda de Marcas — Proter</title>
+<link rel="icon" type="image/png" href="proter.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --ink:#0B0B0D;
+  --ink-2:#151417;
+  --ink-3:#1E1C1A;
+  --parchment:#F6F3EC;
+  --parchment-2:#EFEADF;
+  --gold:#C9A227;
+  --gold-bright:#E8C55B;
+  --gold-dim:#8A6C1F;
+  --text-dark:#1A1912;
+  --text-muted:#6B6759;
+  --text-light:#F4F1E8;
+  --text-light-muted:#B9B4A6;
+  --line:rgba(201,162,39,0.25);
+  --shadow-gold: 0 0 0 1px rgba(201,162,39,0.35), 0 18px 40px -18px rgba(201,162,39,0.35);
+  --radius: 2px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--parchment);
+  color:var(--text-dark);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+.eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:var(--gold);
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+}
+.eyebrow::before{
+  content:"";
+  width:22px;height:1px;
+  background:var(--gold);
+  display:inline-block;
+}
+h1,h2,h3{
+  font-family:'Playfair Display',serif;
+  font-weight:700;
+  line-height:1.08;
+  letter-spacing:-0.01em;
+}
+.serif-italic{font-style:italic;font-weight:600;color:var(--gold);}
+p{line-height:1.65;}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  font-family:'Inter',sans-serif;
+  font-weight:600;
+  font-size:14.5px;
+  letter-spacing:0.01em;
+  padding:16px 28px;
+  border-radius:var(--radius);
+  cursor:pointer;
+  border:1px solid transparent;
+  transition:transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
+  white-space:nowrap;
+}
+.btn-gold{
+  background:linear-gradient(180deg,var(--gold-bright),var(--gold));
+  color:#171304;
+}
+.btn-gold:hover{transform:translateY(-2px); box-shadow: var(--shadow-gold);}
+.btn-outline-dark{
+  border-color:rgba(244,241,232,0.35);
+  color:var(--text-light);
+}
+.btn-outline-dark:hover{border-color:var(--gold); color:var(--gold-bright); transform:translateY(-2px);}
+.btn-outline-light{
+  border-color:rgba(26,25,18,0.25);
+  color:var(--text-dark);
+}
+.btn-outline-light:hover{border-color:var(--gold-dim); color:var(--gold-dim); transform:translateY(-2px);}
+.btn svg{width:15px;height:15px;transition:transform .25s ease;}
+.btn:hover svg{transform:translateX(3px);}
+
+/* ---------- seal ornament ---------- */
+.seal{display:block;}
+.seal circle, .seal path, .seal line{vector-effect:non-scaling-stroke;}
+
+/* ---------- HEADER ---------- */
+header{
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  background:rgba(11,11,13,0.82);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(201,162,39,0.16);
+}
+.nav{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:18px 32px;
+  max-width:1180px; margin:0 auto;
+}
+.logo-mark{display:flex; align-items:center; gap:10px;}
+.logo-mark .seal{width:30px;height:30px;}
+.wordmark{
+  font-family:'Playfair Display',serif;
+  font-weight:900;
+  font-size:19px;
+  letter-spacing:0.06em;
+  color:var(--text-light);
+}
+.wordmark span{color:var(--gold);}
+.nav-links{display:flex; align-items:center; gap:30px;}
+.nav-links a{
+  font-size:13.5px;
+  color:var(--text-light-muted);
+  transition:color .2s ease;
+  letter-spacing:0.01em;
+  white-space:nowrap;
+}
+.nav-links a:hover{color:var(--gold-bright);}
+.nav-links a.active{color:var(--gold-bright);}
+.nav-cta{display:flex;align-items:center;gap:18px;}
+
+/* hamburger button (mobile only) */
+.nav-toggle{
+  display:none;
+  width:40px;height:40px;
+  align-items:center; justify-content:center;
+  background:none;
+  border:1px solid rgba(201,162,39,0.35);
+  border-radius:var(--radius);
+  cursor:pointer;
+  position:relative;
+  flex-shrink:0;
+  -webkit-tap-highlight-color:transparent;
+}
+.nav-toggle span{
+  position:absolute; left:10px; right:10px; height:1.5px;
+  background:var(--gold-bright);
+  transition:transform .25s ease, opacity .25s ease;
+}
+.nav-toggle span:nth-child(1){top:14px;}
+.nav-toggle span:nth-child(2){top:19.5px;}
+.nav-toggle span:nth-child(3){top:25px;}
+.nav-toggle.open span:nth-child(1){transform:translateY(5.5px) rotate(45deg);}
+.nav-toggle.open span:nth-child(2){opacity:0;}
+.nav-toggle.open span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg);}
+
+/* fullscreen mobile menu panel */
+.mobile-menu{
+  display:none;
+  position:fixed; inset:0;
+  background:rgba(11,11,13,0.98);
+  backdrop-filter:blur(6px);
+  z-index:99;
+  padding:96px 32px 40px;
+  flex-direction:column;
+  gap:2px;
+  overflow-y:auto;
+  opacity:0; visibility:hidden;
+  transition:opacity .25s ease;
+}
+.mobile-menu.open{display:flex; opacity:1; visibility:visible;}
+.mobile-menu a{
+  font-family:'Playfair Display',serif;
+  font-weight:600;
+  font-size:22px;
+  color:var(--text-light);
+  padding:18px 2px;
+  border-bottom:1px solid rgba(201,162,39,0.14);
+}
+.mobile-menu a.active{color:var(--gold-bright);}
+.mobile-menu .btn{margin-top:28px; justify-content:center; width:100%;}
+body.menu-open{overflow:hidden;}
+
+/* ---------- reveal on scroll ---------- */
+.reveal{opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease;}
+.reveal.in{opacity:1; transform:translateY(0);}
+.reveal-stagger > *{transition-delay:calc(var(--i,0) * 90ms);}
+
+/* ---------- INNER PAGE BANNER ---------- */
+.page-banner{
+  background:radial-gradient(120% 100% at 85% 0%, #201c14 0%, var(--ink) 55%), var(--ink);
+  color:var(--text-light);
+  padding:168px 0 70px;
+  position:relative;
+  overflow:hidden;
+}
+.page-banner::before{
+  content:"";
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(201,162,39,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,162,39,0.05) 1px, transparent 1px);
+  background-size:64px 64px;
+  mask-image:radial-gradient(60% 60% at 20% 20%, black, transparent 75%);
+  pointer-events:none;
+}
+.page-banner .wrap{position:relative;}
+.page-banner .eyebrow{margin-bottom:20px;}
+.page-banner h1{font-size:clamp(32px,4.4vw,52px); max-width:680px; margin-bottom:16px;}
+.page-banner p.lead{color:var(--text-light-muted); font-size:16px; max-width:560px; margin-bottom:34px;}
+.page-banner .hero-actions{display:flex; align-items:center; gap:22px; flex-wrap:wrap;}
+.crumb{
+  font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.1em;
+  color:var(--text-light-muted); text-transform:uppercase; margin-bottom:26px; display:block;
+}
+.crumb a{color:var(--gold-bright);}
+.crumb a:hover{text-decoration:underline;}
+
+/* ---------- INTRO / SPLIT SECTION ---------- */
+.split{background:var(--parchment); padding:120px 0;}
+.split-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:64px; align-items:start;}
+.split-head .eyebrow{color:var(--gold-dim); margin-bottom:20px;}
+.split-head .eyebrow::before{background:var(--gold-dim);}
+.split-head h2{font-size:clamp(28px,3.4vw,40px); margin-bottom:18px;}
+.split-head p{color:var(--text-muted); font-size:15.5px; max-width:400px;}
+.split-list{display:flex; flex-direction:column; gap:0;}
+.split-item{
+  display:flex; gap:22px; padding:26px 0; border-bottom:1px solid rgba(26,25,18,0.1);
+}
+.split-item:first-child{padding-top:0;}
+.split-num{
+  font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--gold-dim); flex-shrink:0; padding-top:3px;
+}
+.split-item h3{font-size:17.5px; font-weight:700; margin-bottom:8px; color:var(--text-dark);}
+.split-item p{font-size:14.5px; color:var(--text-muted);}
+
+/* ---------- TWO PATHS (comprar / vender) ---------- */
+.paths{background:var(--ink-2); color:var(--text-light); padding:120px 0;}
+.paths-head{max-width:640px; margin-bottom:56px;}
+.paths-head .eyebrow{margin-bottom:20px;}
+.paths-head h2{font-size:clamp(28px,3.4vw,42px); margin-bottom:18px;}
+.paths-head h2 em{font-style:italic; color:var(--gold-bright);}
+.paths-head p{color:var(--text-light-muted); font-size:16px; max-width:520px;}
+.paths-grid{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:rgba(201,162,39,0.16); border:1px solid rgba(201,162,39,0.16);}
+.path-card{background:var(--ink-2); padding:44px 40px;}
+.path-tag{
+  font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase;
+  color:var(--gold-dim); margin-bottom:18px; display:block;
+}
+.path-card h3{font-family:'Playfair Display',serif; font-size:24px; margin-bottom:14px; color:var(--text-light);}
+.path-card p{color:var(--text-light-muted); font-size:14.5px; margin-bottom:24px;}
+.path-checks{list-style:none; display:flex; flex-direction:column; gap:12px; margin-bottom:28px;}
+.path-checks li{
+  display:flex; align-items:flex-start; gap:10px; font-size:14px; color:var(--text-light-muted);
+}
+.path-checks svg{width:15px;height:15px; flex-shrink:0; margin-top:2px; color:var(--gold-bright);}
+
+/* ---------- PROCESS / STEPS ---------- */
+.process{background:var(--parchment); padding:130px 0;}
+.process-head{
+  display:flex; justify-content:space-between; align-items:flex-end; gap:40px;
+  margin-bottom:64px; flex-wrap:wrap;
+}
+.process-head .eyebrow{color:var(--gold-dim); margin-bottom:20px;}
+.process-head .eyebrow::before{background:var(--gold-dim);}
+.process-head h2{font-size:clamp(30px,3.6vw,46px); max-width:520px;}
+.process-head p{color:var(--text-muted); max-width:340px; font-size:15px;}
+.process-grid{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+  background:rgba(26,25,18,0.1); border:1px solid rgba(26,25,18,0.1);
+}
+.process-card{background:var(--parchment); padding:36px 30px; transition:background .3s ease;}
+.process-card:hover{background:#fff;}
+.process-num{
+  font-family:'JetBrains Mono',monospace; font-size:26px; font-weight:600; color:var(--gold);
+  margin-bottom:20px; display:block;
+}
+.process-card h3{font-size:16.5px; font-weight:700; margin-bottom:10px; color:var(--text-dark);}
+.process-card p{font-size:13.5px; color:var(--text-muted); line-height:1.6;}
+
+/* ---------- CALLOUT STAT STRIP ---------- */
+.stat-strip{
+  background:var(--ink); color:var(--text-light); padding:64px 0; border-top:1px solid rgba(201,162,39,0.14); border-bottom:1px solid rgba(201,162,39,0.14);
+}
+.stat-strip .wrap{display:flex; justify-content:space-between; align-items:center; gap:24px; flex-wrap:wrap;}
+.stat-item{display:flex; flex-direction:column; gap:4px;}
+.stat-num{font-family:'JetBrains Mono',monospace; font-size:28px; font-weight:600; color:var(--gold-bright);}
+.stat-label{font-size:12px; color:var(--text-light-muted); letter-spacing:0.03em; max-width:200px;}
+.stat-divider{width:1px; height:38px; background:rgba(201,162,39,0.2);}
+
+/* ---------- FAQ ---------- */
+.faq{background:var(--ink); color:var(--text-light); padding:130px 0;}
+.faq-grid{display:grid; grid-template-columns:0.8fr 1.2fr; gap:60px;}
+.faq-head .eyebrow{margin-bottom:20px;}
+.faq-head h2{font-size:clamp(28px,3.4vw,42px); margin-bottom:20px;}
+.faq-head p{color:var(--text-light-muted); font-size:15px; max-width:340px; margin-bottom:32px;}
+.faq-item{border-bottom:1px solid rgba(201,162,39,0.18);}
+.faq-q{
+  width:100%; text-align:left; background:none; border:none; cursor:pointer;
+  display:flex; justify-content:space-between; align-items:center; gap:20px;
+  padding:22px 2px; color:var(--text-light);
+  font-family:'Inter',sans-serif; font-size:15.5px; font-weight:600;
+}
+.faq-q:hover{color:var(--gold-bright);}
+.faq-icon{width:20px;height:20px; flex-shrink:0; position:relative;}
+.faq-icon::before,.faq-icon::after{content:""; position:absolute; background:var(--gold); transition:transform .3s ease;}
+.faq-icon::before{top:50%; left:0; width:100%; height:1px; transform:translateY(-50%);}
+.faq-icon::after{left:50%; top:0; width:1px; height:100%; transform:translateX(-50%);}
+.faq-item.open .faq-icon::after{transform:translateX(-50%) rotate(90deg); opacity:0;}
+.faq-a{max-height:0; overflow:hidden; transition:max-height .35s ease;}
+.faq-a p{padding:0 2px 22px; color:var(--text-light-muted); font-size:14.5px; line-height:1.7; max-width:520px;}
+
+/* ---------- FINAL CTA ---------- */
+.final-cta{
+  background:linear-gradient(100deg,var(--gold) 0%, var(--gold-bright) 100%);
+  padding:80px 0; position:relative; overflow:hidden;
+}
+.final-cta::after{
+  content:""; position:absolute; right:-60px; top:50%; transform:translateY(-50%);
+  width:280px;height:280px; border:1px solid rgba(23,19,4,0.15); border-radius:50%;
+}
+.final-cta-inner{
+  display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap; position:relative;
+}
+.final-cta h2{font-size:clamp(26px,3.2vw,38px); color:#171304; max-width:520px;}
+.final-cta p{color:#3a2f0d; margin-top:12px; max-width:420px; font-size:15px;}
+.final-cta .btn-outline-dark{background:#171304; color:var(--text-light); border-color:#171304;}
+.final-cta .btn-outline-dark:hover{background:#2a2308;}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--ink); color:var(--text-light-muted); padding:70px 0 28px;}
+.footer-grid{
+  display:grid; grid-template-columns:1.4fr 0.8fr 0.8fr 1fr; gap:40px;
+  padding-bottom:50px; border-bottom:1px solid rgba(201,162,39,0.14); margin-bottom:26px;
+}
+.footer-brand .logo-mark{margin-bottom:18px;}
+.footer-brand p{font-size:13.5px; max-width:280px; line-height:1.7;}
+.footer-col h4{
+  font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-light);
+  margin-bottom:18px; font-weight:600;
+}
+.footer-col a, .footer-col p{
+  display:block; font-size:13.5px; margin-bottom:10px; color:var(--text-light-muted); transition:color .2s ease;
+}
+.footer-col a:hover{color:var(--gold-bright);}
+.footer-bottom{
+  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
+  font-size:12px; color:rgba(185,180,166,0.6);
+}
+
+/* ---------- TABLET ---------- */
+@media (max-width:1024px){
+  .split-grid{gap:44px;}
+  .paths-card{padding:38px 32px;}
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width:920px){
+  .nav{padding:16px 20px;}
+  .nav-links{display:none;}
+  .nav-toggle{display:flex;}
+  .nav-cta .btn-gold{display:none;}
+
+  .page-banner{padding:128px 0 56px;}
+  .page-banner .hero-actions{width:100%;}
+  .page-banner .hero-actions .btn{flex:1 1 auto; justify-content:center;}
+
+  .split{padding:80px 0;}
+  .split-grid{grid-template-columns:1fr; gap:40px;}
+  .split-head p{max-width:none;}
+
+  .paths{padding:80px 0;}
+  .paths-grid{grid-template-columns:1fr;}
+
+  .process{padding:80px 0;}
+  .process-head{margin-bottom:40px;}
+  .process-head p{max-width:none;}
+  .process-grid{grid-template-columns:repeat(2,1fr);}
+
+  .faq{padding:80px 0;}
+  .faq-grid{grid-template-columns:1fr; gap:36px;}
+  .faq-head p{max-width:none;}
+
+  .footer-grid{grid-template-columns:1fr 1fr; gap:32px;}
+  .final-cta-inner{flex-direction:column; align-items:flex-start;}
+  .final-cta .btn{width:100%; justify-content:center;}
+  .stat-strip .wrap{gap:28px; justify-content:flex-start;}
+  .stat-label{max-width:none;}
+}
+
+@media (max-width:640px){
+  .wrap{padding:0 20px;}
+  .page-banner{padding-top:112px;}
+  .page-banner .hero-actions{flex-direction:column; align-items:stretch;}
+  .split-item{gap:16px; padding:22px 0;}
+  .paths-card{padding:32px 22px;}
+  .process-grid{grid-template-columns:1fr;}
+  .process-card{padding:30px 26px;}
+  .stat-strip{padding:48px 0;}
+  .stat-strip .wrap{flex-direction:column; align-items:flex-start; gap:24px;}
+  .stat-divider{display:none;}
+  .footer-grid{grid-template-columns:1fr; gap:36px;}
+  .footer-bottom{flex-direction:column; align-items:flex-start; gap:8px;}
+  .final-cta{padding:56px 0;}
+  .final-cta::after{display:none;}
+}
+
+@media (max-width:400px){
+  .page-banner h1{font-size:28px;}
+  .nav-toggle{width:36px;height:36px;}
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{transition-duration:.01ms !important; animation-duration:.01ms !important; scroll-behavior:auto !important;}
+}
+
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <div class="logo-mark">
+      <img src="proter.png" alt="Logo" width="35" height="35">
+      <span class="wordmark">PROT<span>E</span>R</span>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Início</a>
+      <a href="servicos.html">Serviços</a>
+      <a href="compra-venda-marcas.html" class="active">Compra e Venda</a>
+      <a href="diferenciais.html">Por que blindar</a>
+      <a href="depoimentos.html">Depoimentos</a>
+      <a href="faq.html">Dúvidas</a>
+    </div>
+    <div class="nav-cta">
+      <a class="btn btn-gold" href="contato.html">
+        Fale com um especialista
+        <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#171304" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html">Início</a>
+  <a href="servicos.html">Serviços</a>
+  <a href="compra-venda-marcas.html" class="active">Compra e Venda</a>
+  <a href="diferenciais.html">Por que blindar</a>
+  <a href="depoimentos.html">Depoimentos</a>
+  <a href="faq.html">Dúvidas</a>
+  <a class="btn btn-gold" href="contato.html">
+    Fale com um especialista
+    <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#171304" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+</div>
+
+<section class="page-banner">
+  <div class="wrap">
+    <span class="crumb"><a href="index.html">Início</a> / Compra e Venda de Marcas</span>
+    <span class="eyebrow">Cessão de titularidade</span>
+    <h1>Compra e venda de marcas registradas</h1>
+    <p class="lead">Quer começar a operar com uma marca já registrada, sem esperar anos pela concessão? Ou tem uma marca parada que pode virar patrimônio? A Proter conduz todo o processo de compra, venda e transferência de titularidade com segurança jurídica.</p>
+    <div class="hero-actions">
+      <a class="btn btn-gold" href="contato.html">
+        Quero comprar ou vender uma marca
+        <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#171304" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a class="btn btn-outline-dark" href="#processo">Ver como funciona</a>
+    </div>
+  </div>
+</section>
+
+<section class="split">
+  <div class="wrap">
+    <div class="split-grid">
+      <div class="split-head reveal">
+        <span class="eyebrow">O que é</span>
+        <h2>Cessão de marca: <span class="serif-italic">um atalho legal</span> para operar sob um nome já protegido</h2>
+        <p>Toda marca registrada no INPI pode ter sua titularidade transferida de um CNPJ ou CPF para outro, mediante contrato de cessão averbado no próprio órgão. É o mesmo princípio de comprar um imóvel: você adquire um bem com escritura, só que o bem é a marca.</p>
+      </div>
+      <div class="split-list">
+        <div class="split-item reveal">
+          <span class="split-num">01</span>
+          <div>
+            <h3>Marca já concedida, uso imediato</h3>
+            <p>Diferente de um pedido novo — que pode levar anos até sair a concessão — uma marca já registrada permite operar, faturar e anunciar com o nome protegido desde o dia da assinatura do contrato.</p>
+          </div>
+        </div>
+        <div class="split-item reveal">
+          <span class="split-num">02</span>
+          <div>
+            <h3>Segmento e classe já validados</h3>
+            <p>A marca comprada já passou pelo exame do INPI na classe de interesse, reduzindo o risco de indeferimento por colidência com marcas anteriores.</p>
+          </div>
+        </div>
+        <div class="split-item reveal">
+          <span class="split-num">03</span>
+          <div>
+            <h3>Ativo intangível negociável</h3>
+            <p>Uma marca com registro concedido, histórico de uso ou reconhecimento de público tem valor de mercado e pode ser vendida, licenciada ou usada como garantia em negociações.</p>
+          </div>
+        </div>
+        <div class="split-item reveal">
+          <span class="split-num">04</span>
+          <div>
+            <h3>Transferência averbada no INPI</h3>
+            <p>Sem o registro da cessão no INPI, a transação não tem validade legal perante terceiros. A Proter conduz o protocolo, o acompanhamento e a publicação da averbação.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="paths">
+  <div class="wrap">
+    <div class="paths-head reveal">
+      <span class="eyebrow">Dois caminhos</span>
+      <h2>Quer <em>comprar</em> uma marca pronta ou <em>vender</em> a sua?</h2>
+      <p>Atuamos dos dois lados da negociação: buscando marcas disponíveis e compatíveis com o seu negócio, ou preparando a sua marca para ser vendida com segurança e pelo valor justo.</p>
+    </div>
+    <div class="paths-grid">
+      <div class="path-card reveal">
+        <span class="path-tag">Para quem quer comprar</span>
+        <h3>Aquisição de marca registrada</h3>
+        <p>Ideal para quem precisa começar a operar rápido, já tem um nome em mente ou quer entrar em um segmento sem correr o risco de indeferimento de um pedido novo.</p>
+        <ul class="path-checks">
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Busca de marcas disponíveis na classe desejada</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Due diligence: situação no INPI, ônus e pendências</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Negociação de valor e condições com o titular</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Contrato de cessão e averbação no INPI</li>
+        </ul>
+        <a class="btn btn-gold" href="contato.html">
+          Quero comprar uma marca
+          <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#171304" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="path-card reveal">
+        <span class="path-tag">Para quem quer vender</span>
+        <h3>Venda de marca registrada</h3>
+        <p>Para empresas que descontinuaram uma operação, mudaram de nome ou têm uma marca registrada sem uso — e podem transformar esse ativo parado em capital.</p>
+        <ul class="path-checks">
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Avaliação da marca: classe, abrangência e histórico</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Divulgação para compradores compatíveis com o segmento</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Elaboração do contrato de cessão com segurança jurídica</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Protocolo da transferência de titularidade no INPI</li>
+        </ul>
+        <a class="btn btn-gold" href="contato.html">
+          Quero vender minha marca
+          <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#171304" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="processo">
+  <div class="wrap">
+    <div class="process-head">
+      <div class="reveal">
+        <span class="eyebrow">Como funciona</span>
+        <h2>Da negociação à averbação, em quatro etapas</h2>
+      </div>
+      <p class="reveal">Todo o processo é acompanhado pela Proter, do primeiro contato até a publicação da transferência na Revista da Propriedade Industrial.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-card reveal">
+        <span class="process-num">01</span>
+        <h3>Diagnóstico</h3>
+        <p>Levantamos a situação da marca no INPI: status do registro, classe, titular atual e eventuais pendências ou ônus.</p>
+      </div>
+      <div class="process-card reveal">
+        <span class="process-num">02</span>
+        <h3>Negociação</h3>
+        <p>Apoiamos a definição de valor, condições de pagamento e cláusulas do contrato, alinhando os interesses das duas partes.</p>
+      </div>
+      <div class="process-card reveal">
+        <span class="process-num">03</span>
+        <h3>Contrato de cessão</h3>
+        <p>Elaboramos o instrumento de cessão de direitos com as garantias necessárias para comprador e vendedor.</p>
+      </div>
+      <div class="process-card reveal">
+        <span class="process-num">04</span>
+        <h3>Averbação no INPI</h3>
+        <p>Protocolamos a transferência de titularidade e acompanhamos até a publicação, quando a marca passa a constar oficialmente em nome do novo titular.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stat-strip">
+  <div class="wrap">
+    <div class="stat-item">
+      <span class="stat-num">100%</span>
+      <span class="stat-label">do processo acompanhado pela Proter, do diagnóstico à averbação</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="stat-num">INPI</span>
+      <span class="stat-label">toda cessão é registrada oficialmente no órgão responsável</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="stat-num">0</span>
+      <span class="stat-label">risco de operar com marca sem titularidade regularizada</span>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="wrap faq-grid">
+    <div class="faq-head reveal">
+      <span class="eyebrow">Dúvidas</span>
+      <h2>Sobre compra e venda de marcas</h2>
+      <p>Perguntas frequentes de quem está avaliando comprar ou vender uma marca registrada.</p>
+      <a class="btn btn-outline-light" href="faq.html">
+        Ver todas as dúvidas
+        <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item open">
+        <button class="faq-q">
+          Comprar uma marca já registrada é legal?
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-a">
+          <p>Sim. A Lei da Propriedade Industrial (Lei 9.279/96) permite a cessão total ou parcial dos direitos sobre uma marca registrada, desde que formalizada em contrato e averbada no INPI para ter validade perante terceiros.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          Posso usar a marca antes da averbação sair no INPI?
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-a">
+          <p>O contrato de cessão já produz efeitos entre as partes assim que assinado, mas a segurança plena perante terceiros só ocorre após o protocolo e a publicação da transferência pelo INPI. Por isso recomendamos protocolar o quanto antes.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          Como é definido o valor de uma marca?
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-a">
+          <p>Fatores como classe e abrangência do registro, tempo de existência, reconhecimento de mercado, histórico de uso e eventuais disputas influenciam o valor. Fazemos essa avaliação caso a caso antes de indicar uma faixa de negociação.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          Uma marca com pedido em andamento (ainda não concedida) pode ser vendida?
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-a">
+          <p>Sim, é possível ceder um pedido de registro mesmo antes da concessão. Nesse caso, o risco de indeferimento é do comprador, por isso a due diligence prévia é ainda mais importante.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          A Proter cuida de todo o processo ou só da parte jurídica?
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-a">
+          <p>Acompanhamos o processo de ponta a ponta: diagnóstico da marca, apoio na negociação, elaboração do contrato de cessão e protocolo da averbação no INPI, até a publicação oficial da transferência.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="wrap final-cta-inner">
+    <div>
+      <h2>Pronto para comprar ou vender uma marca com segurança?</h2>
+      <p>Fale com um especialista da Proter e receba um diagnóstico gratuito sobre a marca que você quer adquirir ou negociar.</p>
+    </div>
+    <a class="btn btn-outline-dark" href="contato.html">
+      Fale com um especialista
+      <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-mark">
+          <img src="proter.png" alt="Logo" width="50" height="50">
+          <span class="wordmark">PROT<span>E</span>R</span>
+        </div>
+        <p>Blindagem empresarial para quem constrói patrimônio. Registro, vigilância e defesa jurídica da sua propriedade intelectual.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Serviços</h4>
+        <a href="servicos.html">Registro e Concessão</a>
+        <a href="servicos.html">Vigilância de Mercado</a>
+        <a href="servicos.html">Defesa Jurídica</a>
+        <a href="servicos.html">Contratos e Negócios</a>
+        <a href="servicos.html">Auditoria (Due Diligence)</a>
+        <a href="compra-venda-marcas.html">Compra e Venda de Marcas</a>
+      </div>
+      <div class="footer-col">
+        <h4>Site</h4>
+        <a href="diferenciais.html">Por que blindar</a>
+        <a href="depoimentos.html">Depoimentos</a>
+        <a href="faq.html">Dúvidas</a>
+        <a href="contato.html">Fale com um especialista</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <p>WhatsApp: (13) 99202-0653</p>
+        <p>contato@proter.com.br</p>
+        <p>Instagram @proterblindagem</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Proter — Blindagem Empresarial. Todos os direitos reservados.</span>
+      <span>Seja oficial.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// reveal on scroll
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }
+  });
+},{threshold:0.15});
+revealEls.forEach(el=>io.observe(el));
+
+document.querySelectorAll('.reveal-stagger').forEach(group=>{
+  group.classList.add('reveal');
+});
+
+// faq accordion
+document.querySelectorAll('.faq-item').forEach(item=>{
+  const q = item.querySelector('.faq-q');
+  const a = item.querySelector('.faq-a');
+  if(item.classList.contains('open')){
+    a.style.maxHeight = a.scrollHeight + 'px';
+  }
+  q.addEventListener('click', ()=>{
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(other=>{
+      if(other!==item){
+        other.classList.remove('open');
+        other.querySelector('.faq-a').style.maxHeight = 0;
+      }
+    });
+    if(isOpen){
+      item.classList.remove('open');
+      a.style.maxHeight = 0;
+    } else {
+      item.classList.add('open');
+      a.style.maxHeight = a.scrollHeight + 'px';
+    }
+  });
+});
+
+// header shadow on scroll
+const header = document.querySelector('header');
+window.addEventListener('scroll', ()=>{
+  header.style.boxShadow = window.scrollY > 20 ? '0 8px 30px -12px rgba(0,0,0,0.5)' : 'none';
+});
+
+// mobile menu toggle
+const navToggle = document.getElementById('nav-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+
+function closeMobileMenu(){
+  navToggle.classList.remove('open');
+  navToggle.setAttribute('aria-expanded','false');
+  mobileMenu.classList.remove('open');
+  document.body.classList.remove('menu-open');
+}
+
+navToggle.addEventListener('click', ()=>{
+  const isOpen = mobileMenu.classList.contains('open');
+  if(isOpen){
+    closeMobileMenu();
+  } else {
+    navToggle.classList.add('open');
+    navToggle.setAttribute('aria-expanded','true');
+    mobileMenu.classList.add('open');
+    document.body.classList.add('menu-open');
+  }
+});
+
+mobileMenu.querySelectorAll('a').forEach(link=>{
+  link.addEventListener('click', closeMobileMenu);
+});
+
+window.addEventListener('resize', ()=>{
+  if(window.innerWidth > 920) closeMobileMenu();
+});
+</script>
+</body>
+</html>
