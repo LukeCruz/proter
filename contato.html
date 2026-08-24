@@ -132,7 +132,43 @@ header{
 }
 .nav-links a:hover{color:var(--gold-bright);}
 .nav-cta{display:flex;align-items:center;gap:18px;}
-.nav-toggle{display:none;}
+/* ---------- MOBILE NAV (hamburger) ---------- */
+.nav-toggle{
+  display:none;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:5px;
+  width:38px;height:38px;
+  background:none;
+  border:none;
+  cursor:pointer;
+  padding:0;
+  margin-left:6px;
+  position:relative;
+  z-index:120;
+  flex-shrink:0;
+}
+.nav-toggle span{
+  display:block;
+  width:22px;height:2px;
+  background:var(--text-light);
+  border-radius:1px;
+  transition:transform .3s ease, opacity .3s ease;
+}
+.nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.nav-toggle.open span:nth-child(2){opacity:0;}
+.nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.nav-mobile-cta{display:none;}
+.nav-overlay{
+  position:fixed; inset:0;
+  background:rgba(11,11,13,0.6);
+  opacity:0; visibility:hidden;
+  transition:opacity .3s ease, visibility .3s ease;
+  z-index:99;
+}
+.nav-overlay.open{opacity:1; visibility:visible;}
+body.nav-open{overflow:hidden;}
  
 /* ---------- HERO ---------- */
 .hero{
@@ -449,7 +485,42 @@ footer{
  
 /* ---------- MOBILE ---------- */
 @media (max-width:920px){
-  .nav-links{display:none;}
+  .nav-toggle{display:flex;}
+  .nav-links{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:0;
+    position:fixed;
+    top:0; right:0;
+    height:100vh;
+    width:min(78vw,340px);
+    background:var(--ink-2);
+    border-left:1px solid rgba(201,162,39,0.18);
+    padding:100px 32px 40px;
+    transform:translateX(100%);
+    transition:transform .35s ease;
+    z-index:110;
+    overflow-y:auto;
+  }
+  .nav-links.open{transform:translateX(0);}
+  .nav-links a{
+    width:100%;
+    padding:16px 0;
+    font-size:16px;
+    border-bottom:1px solid rgba(201,162,39,0.12);
+  }
+  .nav-links a.nav-mobile-cta{
+    display:inline-flex;
+    width:100%;
+    margin-top:22px;
+    padding:16px 22px;
+    color:#171304;
+    border-bottom:none;
+    justify-content:center;
+    border-radius:var(--radius);
+    font-size:14.5px;
+  }
   .hero-grid{grid-template-columns:1fr; gap:0;}
   .hero-copy{padding-bottom:40px;}
   .hero-visual{margin-top:20px;}
@@ -463,15 +534,36 @@ footer{
   .faq-grid{grid-template-columns:1fr; gap:30px;}
   .footer-grid{grid-template-columns:1fr 1fr; gap:32px;}
   .final-cta-inner{flex-direction:column; align-items:flex-start;}
+  .risk, .services, .testimonials, .faq{padding:80px 0;}
+  .service-detail{grid-template-columns:1fr; gap:20px; padding:48px 0;}
 }
 @media (max-width:560px){
   .wrap{padding:0 20px;}
-  .hero{padding-top:140px;}
+  .nav{padding:14px 20px;}
+  .nav-cta .btn{padding:11px 16px; font-size:12.5px; gap:6px;}
+  .nav-cta .btn svg{display:none;}
+  .wordmark{font-size:16px;}
+  .hero{padding-top:130px;}
   .hero-stats .wrap{gap:20px;}
   .stat-divider{display:none;}
   .risk-grid{grid-template-columns:1fr;}
-  .footer-grid{grid-template-columns:1fr;}
-  .risk-callout{flex-direction:column; align-items:flex-start;}
+  .footer-grid{grid-template-columns:1fr; gap:34px;}
+  .risk-callout{flex-direction:column; align-items:flex-start; padding:28px 24px;}
+  .risk-card, .service-card, .t-card{padding:26px 22px;}
+  .final-cta{padding:56px 0;}
+  .page-banner{padding:126px 0 46px;}
+  .contact-section{padding:64px 0 76px;}
+  .form-card{padding:28px 22px;}
+  .contact-grid{gap:40px;}
+}
+@media (max-width:480px){
+  .nav-cta{display:none;}
+}
+@media (max-width:400px){
+  .hero-copy h1{font-size:clamp(26px,8vw,32px);}
+  .btn{padding:13px 20px; font-size:13px;}
+  .page-banner h1{font-size:clamp(24px,7.5vw,30px);}
+  .wrap{padding:0 16px;}
 }
 @media (prefers-reduced-motion: reduce){
   *{transition-duration:.01ms !important; animation-duration:.01ms !important; scroll-behavior:auto !important;}
@@ -574,6 +666,7 @@ footer{
       <a href="diferenciais.html">Por que blindar</a>
       <a href="depoimentos.html">Depoimentos</a>
       <a href="faq.html">Dúvidas</a>
+      <a class="btn btn-gold nav-mobile-cta" href="contato.html">Fale com um especialista</a>
     </div>
     <div class="nav-cta">
       <a class="btn btn-gold" href="contato.html">
@@ -581,7 +674,11 @@ footer{
         <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#171304" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
     </div>
+    <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+  <div class="nav-overlay"></div>
 </header>
  
 <section class="page-banner" style="padding-bottom:0;">
@@ -765,6 +862,33 @@ document.querySelectorAll('.faq-item').forEach(item=>{
   });
 });
  
+// mobile nav toggle
+const navToggle = document.querySelector('.nav-toggle');
+const navLinksEl = document.querySelector('.nav-links');
+const navOverlay = document.querySelector('.nav-overlay');
+function closeNav(){
+  navToggle.classList.remove('open');
+  navLinksEl.classList.remove('open');
+  navOverlay.classList.remove('open');
+  document.body.classList.remove('nav-open');
+  navToggle.setAttribute('aria-expanded','false');
+}
+function openNav(){
+  navToggle.classList.add('open');
+  navLinksEl.classList.add('open');
+  navOverlay.classList.add('open');
+  document.body.classList.add('nav-open');
+  navToggle.setAttribute('aria-expanded','true');
+}
+if(navToggle && navLinksEl){
+  navToggle.addEventListener('click', ()=>{
+    navLinksEl.classList.contains('open') ? closeNav() : openNav();
+  });
+  navOverlay.addEventListener('click', closeNav);
+  navLinksEl.querySelectorAll('a').forEach(a=>a.addEventListener('click', closeNav));
+  window.addEventListener('resize', ()=>{ if(window.innerWidth>920) closeNav(); });
+}
+
 // header shadow on scroll
 const header = document.querySelector('header');
 window.addEventListener('scroll', ()=>{
